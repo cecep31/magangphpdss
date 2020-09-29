@@ -9,68 +9,92 @@
 
 <body>
 
-
+    <br>
     <div class="container">
         <div class="row">
            
                 <?php
-                $sql 	= 'SELECT * FROM kriteria';
-                $query 	= mysqli_query(Datab(), $sql);
-                if (!empty($query)) {
-                   
-                    while($row = mysqli_fetch_array($query)) 
-                    {
-                        echo "
-                        <br>
-                        <h2>kriteria</h2>
-                        <hr>
+                
+                // $sql 	= "SELECT * FROM kriteria";
+                // $asd = "SELECT count(*) AS NUMBEROFCOLUMNS FROM information_schema.columns WHERE table_name = 'kriteria'";
+                // $queriy 	= mysqli_query(Datab(), $sql);
+                // // $queriy1 	= mysqli_query(Datab(), $asd);
+                // $cek = mysqli_fetch_array($q);
+                // if (!empty($cek)) {
+                //         echo "
+                //         <br>
+                //         <h2>kriteria</h2>
+                //         <hr>
                         
-                        <table class='table'>
-                        <thead class='thead-light'>
-                            <tr>
-                            <th scope='col'>#</th>
-                            <th scope='col'>First</th>
-                            <th scope='col'>Last</th>
-                            <th scope='col'>Handle</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope='row'>1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            </tr>
-                            <tr>
-                            <th scope='row'>2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            </tr>
-                            <tr>
-                            <th scope='row'>3</th>
-                            <td>Larry</td>
-                            <td>the Bird</td>
-                            <td>@twitter</td>
-                            </tr>
-                        </tbody>
-                        </table>
-                        
-                        ";
-                        echo $row['nama'];
-                    }
-                     
-                }else{
-                    if (isset($_POST["simpan1"])) {
-                       tampilkriteriaform();
-                    }elseif (isset($_POST["simpan2"])) {
-                        
-                    }
-                    else {
-                        tampilformjml(); 
-                    } 
+                //         <table class='table'>
+                //         <thead class='thead-light'>
+                //             <tr>
+                //         ";
+                //    while ($dd = mysqli_fetch_array($queriy1)) {
+                //        $ff=1;
+                //        for ($i=0; $i < $dd["0"]; $i++) { 
 
+                //            echo "
+                //                 <th scope='col'>c$ff</th>
+                //            ";
+                //            $ff=$ff+1;
+                //        } 
+                //    }
+                   
+                //     while($row = mysqli_fetch_row($queriy)) 
+                //     {
+                //         echo "
+                        
+                //             </tr>
+                //         </thead>
+                //         <tbody>
+                //             <tr>
+                //             <th scope='row'>1</th>
+                //             <td>Mark</td>
+                //             <td>Otto</td>
+                //             <td>@mdo</td>
+                //             </tr>
+                //             <tr>
+                //             <th scope='row'>2</th>
+                //             <td>Jacob</td>
+                //             <td>Thornton</td>
+                //             <td>@fat</td>
+                //             </tr>
+                //             <tr>
+                //             <th scope='row'>3</th>
+                //             <td>Larry</td>
+                //             <td>the Bird</td>
+                //             <td>@twitter</td>
+                //             </tr>
+                //         </tbody>
+                //         </table>
+                        
+                //         ";
+                        
+                //     }
+                     
+                // }else{
+                //     if (isset($_POST["simpan1"])) {
+                //        tampilkriteriaform();
+                //     }elseif (isset($_POST["simpan2"])) {
+                //         tampilformbobot();
+                //     }
+                //     else {
+                //         tampilformjml(); 
+                //     } 
+
+                // }
+                if (isset($_POST["addkan"])) {
+                    $sql = mysqli_query(Datab(),"insert into kriteria (namak, bobotk) values ('$_POST[nama]','$_POST[bobot]')");
                 }
+
+                if (isset($_POST["tambahk"])) {
+                   tampiladdkategori();
+                }else {
+                    tampilkriteria();
+                   
+                }
+
                 ?>
             
         </div>

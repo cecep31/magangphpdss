@@ -83,9 +83,10 @@ function sqlkriteria(){
                         <thead class='thead-light'>
                             <tr>
                             <th scope='col'>#</th>
-                            <th scope='col'>First</th>
-                            <th scope='col'>Last</th>
-                            <th scope='col'>Handle</th>
+                            <th scope='col'>$row[2]</th>
+                            <th scope='col'>$row[3]</th>
+                            <th scope='col'>$row[4]</th>
+                            <th scope='col'>$row[5]</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -173,6 +174,23 @@ function tampilkriteriaform(){
                     
         </form>
     </div>";
+    
+}
+
+function tampilformbobot(){
+  
+    if (isset($_POST["c1"])) {
+        $k1 = $_POST["c1"];
+    }
+    if (isset($_POST["c2"])) {
+        $k2 = $_POST["c2"];
+    }
+    if (isset($_POST["c3"])) {
+        $k3 = $_POST["c3"];
+    }
+    if (isset($_POST["c4"])) {
+        $k4 = $_POST["c4"];
+    }
     if (isset($_POST["c5"])) {
         $k5 = $_POST["c5"];
     }
@@ -186,46 +204,134 @@ function tampilkriteriaform(){
         $k8 = $_POST["c8"];
     }
  
-    $objk = new Kriteria($_POST["c1"],$_POST["c2"],$_POST["c3"],$_POST["c4"],$k5,$k6,$k7,$k8);
-    $tpdata = $objk->getdata;
-    $x = 4;
-    $ka1 = $objk->getdata()[0];
-    $ka2 = $objk->getdata()[1];
-    $ka3 = $objk->getdata()[2];
-    $ka4 = $objk->getdata()[3];
-    $ka5 = $objk->getdata()[4];
-    $ka6 = $objk->getdata()[5];
-    $ka7 = $objk->getdata()[6];
-    $ka8 = $objk->getdata()[7];
+    // $objk = new Kriteria($_POST["c1"],$_POST["c2"],$_POST["c3"],$_POST["c4"],$k5,$k6,$k7,$k8);
+    // $tpdata = $objk->getdata;
+    // $x = 4;
+    // $ka1 = $objk->getdata()[0];
+    // $ka2 = $objk->getdata()[1];
+    // $ka3 = $objk->getdata()[2];
+    // $ka4 = $objk->getdata()[3];
+    // $ka5 = $objk->getdata()[4];
+    // $ka6 = $objk->getdata()[5];
+    // $ka7 = $objk->getdata()[6];
+    // $ka8 = $objk->getdata()[7];
 
-    $arrs =array();
+    // $arrs =array();
     // for ($i=0; $i < $_POST["jml"]; $i++) { 
     //     array_push($arrs,c)
     //     $x = $x+1;
     // }
+    // $query = "CREATE TABLE kriteria (
+    //     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    //     $k1 int NOT NULL,
+    //     $k2 int NOT NULL,
+    //     $k3 int NOT NULL,
+    //     $k4 int NOT NULL,
+    //     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    //     )";
+    
+    // if (Datab()->query($query) === TRUE) {
+    //     echo "Table MyGuests created successfully";
+    //   } else {
+    //     echo "Error creating table: " . Datab()->error;
+    //   }
+    // $query = "CREATE TABLE MyGuests (
+    //             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
+    //             nama VARCHAR(30) NOT NULL,
 
-    $query = "CREATE TABLE MyGuests (
-                id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-                firstname VARCHAR(30) NOT NULL,
-                lastname VARCHAR(30) NOT NULL,
-                email VARCHAR(50),
-                reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-        )";
-}
-
-function tampilformbobot(){
-    for ($i=0; $i < $_POST["jml"]; $i++) { 
+    //             tgllahir VARCHAR(30) NOT NULL,
+    //             email VARCHAR(50),
+    //             reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+    //     )";
+    // for ($i=0; $i < $_POST["jml"]; $i++) { 
         
-    }
+    // }
     echo "
     <div class='col-4'>
         <h2>Config kriteria</h2> 
         <hr>
         <form method='POST' action=''>
-
+            <h2>berada bobot</h2>
         </form>
     </div>
     ";
+}
+
+function tampilkriteria(){
+    $sql = "SELECT * FROM kriteria";
+    $quer = mysqli_query(Datab(),$sql);
+    echo "
+        <br>
+        <div class='col-6'>
+            <h2>kriteria</h2>
+        </div>
+        <div class='col-6'>
+            <form action='' method='post'>
+
+                <button type='submit' name='tambahk' class='btn btn-primary float-right btn-sm' data-toggle='modal'>
+                    Tambah kriteria
+                </button>
+            </form>
+        </div>
+
+        <hr>           
+        <table class='table'>
+    ";
+    echo "
+                <thead class='thead-light'>
+                     <tr>
+                        <th scope='col'>No</th>
+                        <th scope='col'>Nama kriteria</th>
+                        <th scope='col'>Bobot</th>
+                        <th scope='col'>Data date</th>
+                        <th scope='col'>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+    ";
+    $nom = 1;
+    while ($row = mysqli_fetch_array($quer)) {
+        echo "
+        
+        <tr>
+            <th scope='row'>$nom</th>
+            <td>$row[1]</td>
+            <td>$row[2]</td>
+            <td>$row[3]</td>
+            <td>
+                <a href=''>edit</a>
+                <a href=''>delete</a>
+            </td>
+        </tr>
+        
+        
+        ";
+    }
+    echo "
+    </tbody>
+    </table>
+                        
+                        
+    ";
+}
+
+function tampiladdkategori(){
+    echo "
+    <form action='' method='post'>
+        <div class='form-group'>
+            <label >Nama kategori</label>
+            <input type='text' name='nama' class='form-control' >
+            
+        </div>
+        <div class='form-group'>
+            <label >Bobot kategori</label>
+            <input type='text' name='bobot' class='form-control' >
+        </div>        
+            <button type='submit' name='addkan' class='btn btn-primary'>Tambah</button>
+    </form>
+    ";
+    
+    
 }
 
 ?>
