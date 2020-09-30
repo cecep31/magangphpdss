@@ -32,7 +32,7 @@ include 'config/app.php'
           <li class="nav-item <?php if ($_GET["p"] == "") {echo 'active';} ?>">
             <a class="nav-link" href="/magangphpdss">Home <span class="sr-only">(current)</span></a>
           </li>
-          <li class="nav-item <?php if ($_GET["p"] == "kriteria") {echo 'active';} ?>">
+          <li class="nav-item <?php if ($_GET["p"] == "kriteria" || $_GET["p"] == "kriteriaedit"||$_GET["p"] == "kriteriadelete") {echo 'active';} ?>">
             <a class="nav-link" href="?p=kriteria">Kriteria</a>
           </li>
           <li class="nav-item">
@@ -94,14 +94,14 @@ $c8 = $obj->getdata()[7];
       case 'cedit':
         include "kriteriaedit.php";
         break;
-      case 'cdel':
-        include "kriteriadel.php";
-        break;
       case 'addalt':
         include "addalt.php";
         break;
       case 'kriteriaedit':
         include "kriteriaedit.php";
+        break;
+      case 'kriteriadelete':
+        include "kriteriadelete.php";
         break;
       case 'home':
         include "home.php";

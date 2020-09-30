@@ -299,13 +299,14 @@ function tampilkriteria(){
             <td>$row[2]</td>
             <td>$row[3]</td>
             <td>
-                <a href=''>edit</a>
-                <a href=''>delete</a>
+                <a href='?p=kriteriaedit&key=$row[0]'>edit</a>
+                <a href='?p=kriteriadelete&key=$row[0]'>delete</a>
             </td>
         </tr>
         
         
         ";
+        $nom+=1;
     }
     echo "
     </tbody>
@@ -315,21 +316,23 @@ function tampilkriteria(){
     ";
 }
 
-function tampiladdkategori(){
+function tampiladdkategori($nama="",$bobot=""){
+    if ($_GET["p"] == "kriteriaedit") {$tombol="ubah";}else{$tombol="tambah";}
     echo "
     <form action='' method='post'>
         <div class='form-group'>
             <label >Nama kategori</label>
-            <input type='text' name='nama' class='form-control' >
+            <input type='text' value='$nama' name='nama' class='form-control' >
             
         </div>
         <div class='form-group'>
             <label >Bobot kategori</label>
-            <input type='text' name='bobot' class='form-control' >
+            <input type='text' value='$bobot' name='bobot' class='form-control' >
         </div>        
-            <button type='submit' name='addkan' class='btn btn-primary'>Tambah</button>
+            <button type='submit' name='addkan' class='btn btn-primary'>$tombol</button>
     </form>
     ";
+    
     
     
 }
