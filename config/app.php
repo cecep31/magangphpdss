@@ -143,7 +143,7 @@ function tampilformjml(){
 
 function tampilkriteriaform(){
     echo "
-    <div class='col-4'>
+    <div class='col-2'>
         <br>
         <h2>Config kriteria</h2> 
         <hr>
@@ -295,8 +295,8 @@ function tampilkriteria(){
             <td>$row[2]</td>
             <td>$row[3]</td>
             <td>
-                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/edit.png' width='20' alt=''></a>&nbsp;|
-                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/del.png' width='20' alt=''></a>
+                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
+                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
             </td>
         </tr>
         
@@ -359,8 +359,8 @@ function tampilalternatif(){
             <td>$row[4]</td>
           
             <td>
-                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/edit.png' width='20' alt=''></a>&nbsp;|
-                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/del.png' width='20' alt=''></a>
+                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
+                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
             </td>
         </tr>
         
@@ -376,7 +376,7 @@ function tampilalternatif(){
     ";
 }
 
-function tampiladdkategori($nama="",$bobot=""){
+function tampiladdkriteria($nama="",$bobot=""){
     if ($_GET["p"] == "kriteriaedit") {$tombol="ubah";}else{$tombol="tambah";}
     echo "
     <form action='' method='post'>
@@ -395,6 +395,36 @@ function tampiladdkategori($nama="",$bobot=""){
     
     
     
+}
+
+function tampiltambahalteratif(){
+    if ($_GET["p"] == "alternatifedit") {$tombol="ubah";}else{$tombol="tambah";}
+    echo "
+    <form action='' method='post'>
+        <div class='form-group'>
+            <label >ID</label>
+            <input type='text' value='' name='id' class='form-control' >
+            
+        </div>
+        <div class='form-group'>
+            <label >nama</label>
+            <input type='text' value='' name='nama' class='form-control' >
+        </div>
+        <div class='form-group'>
+            <label >e-mail</label>
+            <input type='text' value='' name='email' class='form-control' >
+        </div> 
+        <div class='form-group'>
+            <label >tanggal lahir</label>
+            <input type='date' value='' name='tgl' class='form-control' >
+        </div> 
+        <div class='form-group'>
+            <label >alamat</label>
+            <textarea class='form-control' name='alamat' id='exampleFormControlTextarea1' ></textarea>
+        </div>           
+            <button type='submit' name='addkan' class='btn btn-primary'>$tombol</button>
+    </form>
+    ";
 }
 
 ?>

@@ -89,7 +89,7 @@
                 }
 
                 if (isset($_POST["tambahk"])) {
-                   tampiladdkategori();
+                   tampiladdkriteria();
                 }else {
                     tampilkriteria();
                    

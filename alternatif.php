@@ -1,6 +1,9 @@
 <br>
 <div class="container">
-    <div class="row">
+    <div class="row <?php if (isset($_POST["tambaha"])) {
+        echo "row-cols-2";
+    } ?>">
+       
     <!-- <form>
         <div class="form-group">
             <label>Id/kode identitas</label>
@@ -45,9 +48,12 @@
         </div>
     </form> -->
     <?php
+        if (isset($_POST["addkan"])) {
+            $sql = mysqli_query(Datab(),"insert into alternatif (ida, namaa, emaila, tgl_lahira, alamata) values ('$_POST[id]','$_POST[nama]','$_POST[email]','$_POST[tgl]','$_POST[alamat]')");
+        }
 
         if (isset($_POST["tambaha"])) {
-            echo "asik";
+            tampiltambahalteratif();
         }else {
             tampilalternatif();
         }
