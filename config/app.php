@@ -359,8 +359,8 @@ function tampilalternatif(){
             <td>$row[4]</td>
           
             <td>
-                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
-                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
+                <a href='?p=alternatifedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
+                <a href='?p=alternatifdelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
             </td>
         </tr>
         
@@ -397,30 +397,32 @@ function tampiladdkriteria($nama="",$bobot=""){
     
 }
 
-function tampiltambahalteratif(){
+
+
+function tampiltambahalteratif($id=null,$nama=null,$email=null,$tgl=null,$alamat=null){
     if ($_GET["p"] == "alternatifedit") {$tombol="ubah";}else{$tombol="tambah";}
     echo "
     <form action='' method='post'>
         <div class='form-group'>
             <label >ID</label>
-            <input type='text' value='' name='id' class='form-control' >
+            <input type='text' value='$id' name='id' class='form-control' >
             
         </div>
         <div class='form-group'>
             <label >nama</label>
-            <input type='text' value='' name='nama' class='form-control' >
+            <input type='text' value='$nama' name='nama' class='form-control' >
         </div>
         <div class='form-group'>
             <label >e-mail</label>
-            <input type='text' value='' name='email' class='form-control' >
+            <input type='text' value='$email' name='email' class='form-control' >
         </div> 
         <div class='form-group'>
             <label >tanggal lahir</label>
-            <input type='date' value='' name='tgl' class='form-control' >
+            <input type='date' value='$tgl' name='tgl' class='form-control' >
         </div> 
         <div class='form-group'>
             <label >alamat</label>
-            <textarea class='form-control' name='alamat' id='exampleFormControlTextarea1' ></textarea>
+            <textarea class='form-control' name='alamat' id='exampleFormControlTextarea1' >$alamat</textarea>
         </div>           
             <button type='submit' name='addkan' class='btn btn-primary'>$tombol</button>
     </form>

@@ -18,7 +18,7 @@ if (isset($_POST["addkan"])) {
         $nama = $t["1"];
         $bobot = $t["2"];
     }
-    tampiladdkategori($nama,$bobot);
+    tampiladdkriteria($nama,$bobot);
 }
 ?>
     </div>

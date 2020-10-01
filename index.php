@@ -100,8 +100,14 @@ $c8 = $obj->getdata()[7];
       case 'kriteriaedit':
         include "kriteriaedit.php";
         break;
+      case 'alternatifedit':
+        include "alternatifedit.php";
+        break;
       case 'kriteriadelete':
         include "kriteriadelete.php";
+        break;
+      case 'alternatifdelete':
+        include "alternatifdelete.php";
         break;
       case 'home':
         include "home.php";
