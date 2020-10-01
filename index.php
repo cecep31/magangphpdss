@@ -10,7 +10,7 @@ include 'config/app.php'
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Magang DSS</title>
   <link rel="stylesheet" type="text/css" href="asset/css/bootstrap.min.css">
   
 </head>
@@ -36,7 +36,7 @@ include 'config/app.php'
             <a class="nav-link" href="?p=kriteria">Kriteria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php if ($_GET["p"] == "addalt") {echo 'active';} ?>" href="?p=addalt">Alternatif</a>
+            <a class="nav-link <?php if ($_GET["p"] == "alternatif") {echo 'active';} ?>" href="?p=alternatif">Alternatif</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -55,7 +55,7 @@ include 'config/app.php'
         </ul>
         <form class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn my-2 my-sm-0" type="submit"><img src="img/search.png" width="20" alt=""></button>
+          <button class="btn my-2 my-sm-0" type="submit"><img src="img/se.png" width="20" alt=""></button>
         </form>
       </div>
     </div>
@@ -94,8 +94,8 @@ $c8 = $obj->getdata()[7];
       case 'cedit':
         include "kriteriaedit.php";
         break;
-      case 'addalt':
-        include "addalt.php";
+      case 'alternatif':
+        include "alternatif.php";
         break;
       case 'kriteriaedit':
         include "kriteriaedit.php";

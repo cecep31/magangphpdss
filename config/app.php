@@ -18,10 +18,6 @@ function Datab()
 }
 
 $jml = 4;
-
-
-
-
 class Kriteria 
     {
         function __construct($c1,$c2,$c3,$c4 = null, $c5=null,$c6=null,$c7=null,$c8=null)
@@ -258,7 +254,7 @@ function tampilformbobot(){
 }
 
 function tampilkriteria(){
-    $sql = "SELECT * FROM kriteria";
+    $sql = "SELECT * FROM Kriteria";
     $quer = mysqli_query(Datab(),$sql);
     echo "
         <br>
@@ -299,8 +295,72 @@ function tampilkriteria(){
             <td>$row[2]</td>
             <td>$row[3]</td>
             <td>
-                <a href='?p=kriteriaedit&key=$row[0]'>edit</a>
-                <a href='?p=kriteriadelete&key=$row[0]'>delete</a>
+                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/edit.png' width='20' alt=''></a>&nbsp;|
+                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/del.png' width='20' alt=''></a>
+            </td>
+        </tr>
+        
+        
+        ";
+        $nom+=1;
+    }
+    echo "
+    </tbody>
+    </table>
+                        
+                        
+    ";
+}
+
+function tampilalternatif(){
+    $sqlku = "SELECT * FROM alternatif";
+    $quer = mysqli_query(Datab(),$sqlku);
+    echo "
+        <br>
+        <div class='col-6'>
+            <h2>Alternatif</h2>
+        </div>
+        <div class='col-6'>
+            <form action='' method='post'>
+
+                <button type='submit' name='tambaha' class='btn btn-primary float-right btn-sm' data-toggle='modal'>
+                    Tambah kriteria
+                </button>
+            </form>
+        </div>
+
+        <hr>           
+        <table class='table'>
+    ";
+    echo "
+                <thead class='thead-light'>
+                     <tr>
+                        <th scope='col'>No</th>
+                        <th scope='col'>id</th>
+                        <th scope='col'>nama</th>
+                        <th scope='col'>e-mail</th>
+                        <th scope='col'>tgl lahir</th>
+                        <th scope='col'>alamat</th>
+                        <th scope='col'>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+    ";
+    $nom = 1;
+    while ($row = mysqli_fetch_array($quer)) {
+        echo "
+        
+        <tr>
+            <th scope='row'>$nom</th>
+            <td>$row[0]</td>
+            <td>$row[1]</td>
+            <td>$row[2]</td>
+            <td>$row[3]</td>
+            <td>$row[4]</td>
+          
+            <td>
+                <a href='?p=kriteriaedit&key=$row[0]'><img src='img/edit.png' width='20' alt=''></a>&nbsp;|
+                <a href='?p=kriteriadelete&key=$row[0]'><img src='img/del.png' width='20' alt=''></a>
             </td>
         </tr>
         
