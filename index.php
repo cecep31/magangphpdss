@@ -22,7 +22,7 @@ include 'config/app.php'
   <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
 
-      <a class="navbar-brand" href="/magangphpdss"><img src="img/logoinfo.png" width="35" alt=""></a>
+      <a class="navbar-brand" href="/"><img src="img/logoinfo.png" width="35" alt=""></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -30,7 +30,7 @@ include 'config/app.php'
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item <?php if ($_GET["p"] == "") {echo 'active';} ?>">
-            <a class="nav-link" href="/magangphpdss">Home <span class="sr-only">(current)</span></a>
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item <?php if ($_GET["p"] == "kriteria" || $_GET["p"] == "kriteriaedit"||$_GET["p"] == "kriteriadelete") {echo 'active';} ?>">
             <a class="nav-link" href="?p=kriteria">Kriteria</a>
@@ -186,6 +186,7 @@ $c8 = $obj->getdata()[7];
   <p></p>
   <div>Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a></div>
 </div>
+
 </body>
 
 </html>

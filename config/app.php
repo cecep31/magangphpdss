@@ -324,7 +324,14 @@ function tampilalternatif(){
             <form action='' method='post'>
 
                 <button type='submit' name='tambaha' class='btn btn-primary float-right btn-sm' data-toggle='modal'>
-                    Tambah kriteria
+                    Tambah Alternatif
+                </button>
+            </form>
+            
+            <form action='' method='post'>
+
+                <button type='submit' name='tambahab' class='btn-success float-right btn-sm' data-toggle='modal'>
+                    Tambah nilai
                 </button>
             </form>
         </div>
@@ -336,11 +343,11 @@ function tampilalternatif(){
                 <thead class='thead-light'>
                      <tr>
                         <th scope='col'>No</th>
-                        <th scope='col'>id</th>
-                        <th scope='col'>nama</th>
-                        <th scope='col'>e-mail</th>
-                        <th scope='col'>tgl lahir</th>
-                        <th scope='col'>alamat</th>
+                        <th scope='col'>Id</th>
+                        <th scope='col'>Nama</th>
+                        <th scope='col'>E-mail</th>
+                        <th scope='col'>Tgl lahir</th>
+                        <th scope='col'>Alamat</th>
                         <th scope='col'>Action</th>
                     </tr>
                 </thead>
@@ -425,6 +432,30 @@ function tampiltambahalteratif($id=null,$nama=null,$email=null,$tgl=null,$alamat
             <textarea class='form-control' name='alamat' id='exampleFormControlTextarea1' >$alamat</textarea>
         </div>           
             <button type='submit' name='addkan' class='btn btn-primary'>$tombol</button>
+    </form>
+    ";
+}
+
+function formtambahnilai(){
+    $qqui = mysqli_query(Datab(), "SELECT namaa FROM altnilai,alternatif WHERE alternatif.ida=altnilai.ida");
+    $asiko = mysqli_query(Datab(), "select * from kriteria");
+    
+    while ($rrr = mysqli_fetch_array($qqui)) {
+        $rrr["0"];
+        
+    }
+    echo "
+    <form>
+        <select name='users' onchange='showUser(this.value)'>
+            
+            <option value=''>Pilih kriteria</option>
+            ";
+            while ($tta = mysqli_fetch_array($asiko)) {
+                echo "  <option value='$tta[idk]'>$tta[1]</option>";
+            }
+        echo "
+        </select>
+        <div id='inidia'><b>Person info will be listed here...</b></div>
     </form>
     ";
 }

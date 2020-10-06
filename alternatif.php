@@ -50,15 +50,39 @@
     <?php
         if (isset($_POST["addkan"])) {
             $sql = mysqli_query(Datab(),"insert into alternatif (ida, namaa, emaila, tgl_lahira, alamata) values ('$_POST[id]','$_POST[nama]','$_POST[email]','$_POST[tgl]','$_POST[alamat]')");
+            $HIMPIT = mysqli_query(Datab(), "INSERT IGNORE INTO altnilai (ida) SELECT ida FROM alternatif");
         }
 
         if (isset($_POST["tambaha"])) {
             tampiltambahalteratif();
-        }else {
+        }elseif (isset($_POST["tambahab"])) {
+            
+            formtambahnilai();
+        }
+        else {
             tampilalternatif();
         }
 
     ?>
     
     </div>
+
 </div>
+<script>
+
+function showUser(str) {
+  if (str == "") {
+    document.getElementById("inidia").innerHTML = "";
+    return;
+  } else {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xmlhttp.open("GET","getuser.php?q="+str,true);
+    xmlhttp.send();
+  }
+}
+</script>
