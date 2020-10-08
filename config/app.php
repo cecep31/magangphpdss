@@ -328,12 +328,7 @@ function tampilalternatif(){
                 </button>
             </form>
             
-            <form action='' method='post'>
-
-                <button type='submit' name='tambahab' class='btn-success float-right btn-sm' data-toggle='modal'>
-                    Tambah nilai
-                </button>
-            </form>
+            
         </div>
 
         <hr>           
@@ -368,6 +363,12 @@ function tampilalternatif(){
             <td>
                 <a href='?p=alternatifedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
                 <a href='?p=alternatifdelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
+                <form action='' method='post'>
+                    <input type='hidden' value='$row[0]' name='ida'>
+                    <button type='submit' name='tambahab' class='btn-success float-right btn-sm' data-toggle='modal'>
+                        Beri nilai
+                    </button>
+                </form>
             </td>
         </tr>
         
@@ -439,23 +440,38 @@ function tampiltambahalteratif($id=null,$nama=null,$email=null,$tgl=null,$alamat
 function formtambahnilai(){
     $qqui = mysqli_query(Datab(), "SELECT namaa FROM altnilai,alternatif WHERE alternatif.ida=altnilai.ida");
     $asiko = mysqli_query(Datab(), "select * from kriteria");
+    $rffs = mysqli_query(Datab(), "SELECT * FROM alternatif WHERE ida = $_POST[ida]");
+    while ($tras = mysqli_fetch_array($rffs)) {
+        $tamp = $tras["namaa"];
+    }
     
     while ($rrr = mysqli_fetch_array($qqui)) {
         $rrr["0"];
         
     }
     echo "
-    <form>
-        <select name='users' onchange='showUser(this.value)'>
-            
-            <option value=''>Pilih kriteria</option>
+    <form action='' method='POST'>
+        <div class='form-group'>
+            <label for='exampleFormControlSelect1'>pilih kriteria</label>
+            <select class='form-control' name='idk'>
+                <option value=''>pilih kriteria</option>
             ";
-            while ($tta = mysqli_fetch_array($asiko)) {
-                echo "  <option value='$tta[idk]'>$tta[1]</option>";
-            }
-        echo "
-        </select>
-        <div id='inidia'><b>Person info will be listed here...</b></div>
+                while ($rea = mysqli_fetch_array($asiko)) {
+                echo "<option value='$rea[idk]'>$rea[namak] ($rea[bobotk] )</option>";
+                }
+
+             echo "
+            </select>
+        </div>
+            <div class='form-group'>
+                <label for='exampleFormControlInput1'>masukan bobot nilai</label>
+                <input type='email' class='form-control' placeholder='Nilai untuk $tamp'>
+            </div>
+        <div class='form-group'>
+            <input type='hidden' class='form-control' placeholder='nilai untuk'>
+        </div>    
+        <button type='submit' name='simp' class='btn btn-primary'>Simpan</button>
+        
     </form>
     ";
 }

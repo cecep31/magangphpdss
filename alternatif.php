@@ -48,6 +48,9 @@
         </div>
     </form> -->
     <?php
+        if (isset($_POST["simp"])) {
+            
+        }
         if (isset($_POST["addkan"])) {
             $sql = mysqli_query(Datab(),"insert into alternatif (ida, namaa, emaila, tgl_lahira, alamata) values ('$_POST[id]','$_POST[nama]','$_POST[email]','$_POST[tgl]','$_POST[alamat]')");
             $HIMPIT = mysqli_query(Datab(), "INSERT IGNORE INTO altnilai (ida) SELECT ida FROM alternatif");
@@ -56,7 +59,6 @@
         if (isset($_POST["tambaha"])) {
             tampiltambahalteratif();
         }elseif (isset($_POST["tambahab"])) {
-            
             formtambahnilai();
         }
         else {
@@ -68,7 +70,7 @@
     </div>
 
 </div>
-<script>
+<!-- <script>
 
 function showUser(str) {
   if (str == "") {
@@ -81,8 +83,8 @@ function showUser(str) {
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-    xmlhttp.open("GET","getuser.php?q="+str,true);
+    xmlhttp.open("GET","init.php?q="+str,true);
     xmlhttp.send();
   }
 }
-</script>
+</script> -->
