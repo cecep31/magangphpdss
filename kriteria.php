@@ -86,6 +86,12 @@
                 // }
                 if (isset($_POST["addkan"])) {
                     $sql = mysqli_query(Datab(),"insert into kriteria (namak, bobotk) values ('$_POST[nama]','$_POST[bobot]')");
+                    $trrs= mysqli_query(Datab(), "select * from kriteria where namak = '$_POST[nama]'");
+                    while ($rows = mysqli_fetch_array($trrs)) {
+                        $yo = $rows[0];
+                    }
+                    $sqlok = mysqli_query(Datab(),"ALTER TABLE `altnilai`  ADD `$yo` INT NOT NULL");
+                    // $buatfiled=mysqli_query(Datab(), "ALTER TABLE altnilai ADD $yo");
                 }
 
                 if (isset($_POST["tambahk"])) {

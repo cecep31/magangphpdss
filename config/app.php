@@ -468,7 +468,7 @@ function formtambahnilai(){
                 <input type='email' class='form-control' placeholder='Nilai untuk $tamp'>
             </div>
         <div class='form-group'>
-            <input type='hidden' class='form-control' placeholder='nilai untuk'>
+            <input type='hidden' value='$_POST[ida]' name='ida' class='form-control' placeholder='nilai untuk'>
         </div>    
         <button type='submit' name='simp' class='btn btn-primary'>Simpan</button>
         
