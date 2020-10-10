@@ -51,6 +51,9 @@
         if (isset($_POST["simp"])) {
             // $qualy1 = mysqli_query(Datab(), "selct * from altnilai");
             // $buatfiled=mysqli_query(Datab(), "ALTER TABLE altnilai ADD '$_POST[idk]' after  ");
+            $quali = mysqli_query(Datab(), "UPDATE `altnilai` SET `$_POST[idk]`= '$_POST[bobotk]' WHERE ida = $_POST[ida]");
+           
+            
         }
         if (isset($_POST["addkan"])) {
             $sql = mysqli_query(Datab(),"insert into alternatif (ida, namaa, emaila, tgl_lahira, alamata) values ('$_POST[id]','$_POST[nama]','$_POST[email]','$_POST[tgl]','$_POST[alamat]')");

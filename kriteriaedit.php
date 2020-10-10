@@ -4,7 +4,7 @@
            
 <?php
 if (isset($_POST["addkan"])) {
-    $qq = mysqli_query(Datab(),"update kriteria set namak='$_POST[nama]', bobotk='$_POST[bobot]' where idk='$_GET[key]'");
+    $qq = mysqli_query(Datab(),"update kriteria set namak='$_POST[nama]', bobotk='$_POST[bobot]',borc='$_POST[borc]' where idk='$_GET[key]'");
     header("location: ?p=kriteria");
 }else {
     
@@ -17,8 +17,9 @@ if (isset($_POST["addkan"])) {
     while ($t = mysqli_fetch_array($equri)) {
         $nama = $t["1"];
         $bobot = $t["2"];
+        $borc = $t["3"];
     }
-    tampiladdkriteria($nama,$bobot);
+    tampiladdkriteria($nama,$bobot,$borc);
 }
 ?>
     </div>

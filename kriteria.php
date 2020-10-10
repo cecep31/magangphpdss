@@ -85,7 +85,7 @@
 
                 // }
                 if (isset($_POST["addkan"])) {
-                    $sql = mysqli_query(Datab(),"insert into kriteria (namak, bobotk) values ('$_POST[nama]','$_POST[bobot]')");
+                    $sql = mysqli_query(Datab(),"insert into kriteria (namak, bobotk, borc) values ('$_POST[nama]','$_POST[bobot]','$_POST[borc]')");
                     $trrs= mysqli_query(Datab(), "select * from kriteria where namak = '$_POST[nama]'");
                     while ($rows = mysqli_fetch_array($trrs)) {
                         $yo = $rows[0];

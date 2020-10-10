@@ -384,8 +384,18 @@ function tampilalternatif(){
     ";
 }
 
-function tampiladdkriteria($nama="",$bobot=""){
+function tampiladdkriteria($nama="",$bobot="",$borc=""){
     if ($_GET["p"] == "kriteriaedit") {$tombol="ubah";}else{$tombol="tambah";}
+    if ($borc=="b") {
+        $borcd = "selected";
+        $co = "id=''";
+    }elseif ($borc == "c") {
+        $co = "selected";
+        $borcd = "id=''";
+    }else {
+        $co = "id=''";
+        $borcd = "id=''";
+    }
     echo "
     <form action='' method='post'>
         <div class='form-group'>
@@ -396,7 +406,15 @@ function tampiladdkriteria($nama="",$bobot=""){
         <div class='form-group'>
             <label >Bobot kategori</label>
             <input type='text' value='$bobot' name='bobot' class='form-control' >
-        </div>        
+        </div>
+        <div class='form-group'>
+            <label >ket benefit or cost</label>
+            <select class='form-control' name='borc'>
+                <option value='b' $borcd>Benefit</option>
+                <option value='c' $co>Cost</option>
+            </select>
+
+        </div>          
             <button type='submit' name='addkan' class='btn btn-primary'>$tombol</button>
     </form>
     ";
@@ -463,12 +481,12 @@ function formtambahnilai(){
              echo "
             </select>
         </div>
-            <div class='form-group'>
-                <label for='exampleFormControlInput1'>masukan bobot nilai</label>
-                <input type='email' class='form-control' placeholder='Nilai untuk $tamp'>
-            </div>
         <div class='form-group'>
-            <input type='hidden' value='$_POST[ida]' name='ida' class='form-control' placeholder='nilai untuk'>
+            <label for='exampleFormControlInput1'>masukan bobot nilai</label>
+            <input type='text' class='form-control' name='bobotk' placeholder='Nilai untuk $tamp'>
+        </div>
+        <div class='form-group'>
+            <input type='hidden' value='$_POST[ida]' name='ida' class='form-control'>
         </div>    
         <button type='submit' name='simp' class='btn btn-primary'>Simpan</button>
         
