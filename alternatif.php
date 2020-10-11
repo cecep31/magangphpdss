@@ -58,6 +58,7 @@
         if (isset($_POST["addkan"])) {
             $sql = mysqli_query(Datab(),"insert into alternatif (ida, namaa, emaila, tgl_lahira, alamata) values ('$_POST[id]','$_POST[nama]','$_POST[email]','$_POST[tgl]','$_POST[alamat]')");
             $HIMPIT = mysqli_query(Datab(), "INSERT IGNORE INTO altnilai (ida) SELECT ida FROM alternatif");
+            $HdMPIT = mysqli_query(Datab(), "INSERT IGNORE INTO altnormal (ida) SELECT ida FROM alternatif");
         }
 
         if (isset($_POST["tambaha"])) {

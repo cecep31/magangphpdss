@@ -40,13 +40,11 @@ include 'config/app.php'
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
+              Output
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
+              <a class="dropdown-item" href="?p=ranking">Ranking</a>
+              <a class="dropdown-item" href="#">Get Data</a>
             </div>
           </li>
           <li class="nav-item">
@@ -108,6 +106,9 @@ $c8 = $obj->getdata()[7];
         break;
       case 'alternatifdelete':
         include "alternatifdelete.php";
+        break;
+      case 'ranking':
+        include "ranking.php";
         break;
       case 'home':
         include "home.php";
