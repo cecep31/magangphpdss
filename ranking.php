@@ -25,10 +25,12 @@ while ($tar=mysqli_fetch_array($kriteria)) {
             echo "<br>";
             echo $max;
             echo "<br>";
-            // $normal = $rt[0]/$max;
-            // echo $normal;
+            $normal = $rt[0]/$max;
+            echo $normal;
+            echo "<hr>";
         }
         echo "bangsat";
+        echo "<br>";
     }else {
         $go=mysqli_query(Datab(),"select '$tar[$nok]' from altnilai order by ida asc");
         $lai = mysqli_query(Datab(), "SELECT min($tar[$nok]) AS max FROM altnilai");
@@ -38,6 +40,8 @@ while ($tar=mysqli_fetch_array($kriteria)) {
         echo "cok";
     }
     $nok += 1;
+    echo "==================================================================================================================";
+    echo "<br>";
 }
 $no=1;
 // while ($yu=mysqli_fetch_array($go)) {

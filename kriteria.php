@@ -91,6 +91,7 @@
                         $yo = $rows[0];
                     }
                     $sqlok = mysqli_query(Datab(),"ALTER TABLE `altnilai`  ADD `c$yo` INT NOT NULL");
+                    $sqlon = mysqli_query(Datab(),"ALTER TABLE `altnormal`  ADD `c$yo` BOOLEAN NOT NULL");
                     // $buatfiled=mysqli_query(Datab(), "ALTER TABLE altnilai ADD $yo");
                 }
 
