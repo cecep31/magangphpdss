@@ -90,7 +90,7 @@
                     while ($rows = mysqli_fetch_array($trrs)) {
                         $yo = $rows[0];
                     }
-                    $sqlok = mysqli_query(Datab(),"ALTER TABLE `altnilai`  ADD `$yo` INT NOT NULL");
+                    $sqlok = mysqli_query(Datab(),"ALTER TABLE `altnilai`  ADD `c$yo` INT NOT NULL");
                     // $buatfiled=mysqli_query(Datab(), "ALTER TABLE altnilai ADD $yo");
                 }
 
