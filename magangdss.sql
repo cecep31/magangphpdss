@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2020 at 11:54 AM
+-- Generation Time: Oct 15, 2020 at 09:20 AM
 -- Server version: 10.4.14-MariaDB
 -- PHP Version: 7.4.9
 
@@ -40,11 +40,10 @@ CREATE TABLE `alternatif` (
 --
 
 INSERT INTO `alternatif` (`ida`, `namaa`, `emaila`, `tgl_lahira`, `alamata`) VALUES
-('127', 'dark', 'adad@ad', '2020-10-20', 'adfad'),
-('2012', 'cecep', 'cecep@ad.com', '2020-10-13', 'adadawdasd'),
-('3455', 'dark', '12asd@ad.id', '2020-10-21', 'ad'),
-('4rsd', 'fikri', 'fikri@jjj.com', '2020-10-30', 'asdjadjkad'),
-('ha3', 'adj', 'jjjj@ah', '2020-10-07', 'asdjjfjfjfj');
+('add', 'bagas', 'bags2df', '2020-10-30', 'asdagd'),
+('hf', 'udinidin', 'udin aja', '2020-10-31', 'ad'),
+('hsdu', 'asep', 'asepaja', '2020-10-13', 'affa'),
+('jahs', 'cecep', 'sadvhad', '2020-11-07', 'hg');
 
 -- --------------------------------------------------------
 
@@ -54,21 +53,20 @@ INSERT INTO `alternatif` (`ida`, `namaa`, `emaila`, `tgl_lahira`, `alamata`) VAL
 
 CREATE TABLE `altnilai` (
   `ida` varchar(15) NOT NULL,
-  `9` int(11) NOT NULL,
-  `10` int(11) NOT NULL,
-  `11` int(11) NOT NULL
+  `c14` int(11) NOT NULL,
+  `c15` int(11) NOT NULL,
+  `c16` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `altnilai`
 --
 
-INSERT INTO `altnilai` (`ida`, `9`, `10`, `11`) VALUES
-('127', 0, 0, 0),
-('2012', 10, 80, 90),
-('3455', 0, 0, 0),
-('4rsd', 0, 0, 0),
-('ha3', 0, 0, 0);
+INSERT INTO `altnilai` (`ida`, `c14`, `c15`, `c16`) VALUES
+('add', 90, 76, 65),
+('hf', 90, 89, 45),
+('hsdu', 12, 67, 78),
+('jahs', 67, 10, 78);
 
 -- --------------------------------------------------------
 
@@ -77,19 +75,21 @@ INSERT INTO `altnilai` (`ida`, `9`, `10`, `11`) VALUES
 --
 
 CREATE TABLE `altnormal` (
-  `ida` varchar(15) NOT NULL
+  `ida` varchar(15) NOT NULL,
+  `c14` tinyint(1) NOT NULL,
+  `c15` tinyint(1) NOT NULL,
+  `c16` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `altnormal`
 --
 
-INSERT INTO `altnormal` (`ida`) VALUES
-('127'),
-('2012'),
-('3455'),
-('4rsd'),
-('ha3');
+INSERT INTO `altnormal` (`ida`, `c14`, `c15`, `c16`) VALUES
+('add', 1, 1, 1),
+('hf', 1, 1, 1),
+('hsdu', 0, 1, 1),
+('jahs', 1, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -110,9 +110,31 @@ CREATE TABLE `kriteria` (
 --
 
 INSERT INTO `kriteria` (`idk`, `namak`, `bobotk`, `borc`, `tgl_update`) VALUES
-(9, 'potensi', 0.9, 'b', '2020-10-10 11:51:17'),
-(10, 'pengalaman', 0.6, 'b', '2020-10-10 13:05:00'),
-(11, 'ipk', 0.2, 'b', '2020-10-10 13:05:14');
+(14, 'nasib', 0.7, 'b', '2020-10-15 04:27:50'),
+(15, 'nilai', 0.8, 'b', '2020-10-15 04:28:11'),
+(16, 'kasus', 0.4, 'c', '2020-10-15 04:28:29');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ranknya`
+--
+
+CREATE TABLE `ranknya` (
+  `ida` varchar(15) NOT NULL,
+  `nilai` double NOT NULL,
+  `tgl` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `ranknya`
+--
+
+INSERT INTO `ranknya` (`ida`, `nilai`, `tgl`) VALUES
+('add', 1.9, '2020-10-15 06:51:55'),
+('hf', 1.9, '2020-10-15 06:51:55'),
+('hsdu', 1.2, '2020-10-15 06:51:55'),
+('jahs', 1.1, '2020-10-15 06:51:55');
 
 --
 -- Indexes for dumped tables
@@ -143,6 +165,12 @@ ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`idk`);
 
 --
+-- Indexes for table `ranknya`
+--
+ALTER TABLE `ranknya`
+  ADD PRIMARY KEY (`ida`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -150,7 +178,7 @@ ALTER TABLE `kriteria`
 -- AUTO_INCREMENT for table `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `idk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `idk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
