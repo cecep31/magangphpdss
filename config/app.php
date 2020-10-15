@@ -458,7 +458,7 @@ function tampiltambahalteratif($id=null,$nama=null,$email=null,$tgl=null,$alamat
 function formtambahnilai(){
     $qqui = mysqli_query(Datab(), "SELECT namaa FROM altnilai,alternatif WHERE alternatif.ida=altnilai.ida");
     $asiko = mysqli_query(Datab(), "select * from kriteria");
-    $rffs = mysqli_query(Datab(), "SELECT * FROM alternatif WHERE ida = $_POST[ida]");
+    $rffs = mysqli_query(Datab(), "SELECT * FROM alternatif WHERE ida = '$_POST[ida]'");
     while ($tras = mysqli_fetch_array($rffs)) {
         $tamp = $tras["namaa"];
     }
@@ -475,7 +475,7 @@ function formtambahnilai(){
                 <option value=''>pilih kriteria</option>
             ";
                 while ($rea = mysqli_fetch_array($asiko)) {
-                echo "<option value='$rea[idk]'>$rea[namak] ($rea[bobotk] )</option>";
+                echo "<option value='$rea[idk]'>$rea[namak] ($rea[bobotk] ) $_POST[ida]</option>";
                 }
 
              echo "
@@ -486,7 +486,7 @@ function formtambahnilai(){
             <input type='text' class='form-control' name='bobotk' placeholder='Nilai untuk $tamp'>
         </div>
         <div class='form-group'>
-            <input type='hidden' value='$_POST[ida]' name='ida' class='form-control'>
+        <input type='hidden' value='$_POST[ida]' name='ida'>
         </div>    
         <button type='submit' name='simp' class='btn btn-primary'>Simpan</button>
         
