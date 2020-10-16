@@ -4,8 +4,8 @@ function Datab()
 {
     # code...
     $host = "localhost";
-    $user = "root";
-    $pass = "";
+    $user = "pilput";
+    $pass = "pilput31";
     $db = "magangdss";
 
         $conn = new mysqli($host,$user,$pass, $db);
@@ -255,7 +255,7 @@ function tampilformbobot(){
 
 function tampilkriteria(){
     $sql = "SELECT * FROM Kriteria";
-    $quer = mysqli_query(Datab(),$sql);
+    $quer = mysqli_query(Datab(),"select * from kriteria");
     echo "
         <br>
         <div class='col-6'>
@@ -288,7 +288,6 @@ function tampilkriteria(){
     $nom = 1;
     while ($row = mysqli_fetch_array($quer)) {
         echo "
-        
         <tr>
             <th scope='row'>$nom</th>
             <td>$row[1]</td>
@@ -299,8 +298,6 @@ function tampilkriteria(){
                 <a href='?p=kriteriadelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
             </td>
         </tr>
-        
-        
         ";
         $nom+=1;
     }
@@ -361,11 +358,11 @@ function tampilalternatif(){
             <td>$row[4]</td>
           
             <td>
-                <a href='?p=alternatifedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
-                <a href='?p=alternatifdelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>
-                <form action='' method='post'>
+            <a href='?p=alternatifedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|
+            <a href='?p=alternatifdelete&key=$row[0]'><img src='img/074-bin.png' width='20' alt=''></a>&nbsp&nbsp
+            <form action='' method='post'>
                     <input type='hidden' value='$row[0]' name='ida'>
-                    <button type='submit' name='tambahab' class='btn-success float-right btn-sm' data-toggle='modal'>
+                    <button type='submit' name='tambahab' class='btn-success  btn-sm' data-toggle='modal'>
                         Beri nilai
                     </button>
                 </form>
