@@ -20,17 +20,17 @@ $kriteria=mysqli_query(Datab(),"select * from kriteria order by idk asc");
                 $max=$rg["0"]; 
             } 
             while ($rt=mysqli_fetch_array($go)) { 
-                echo $rt[1]; 
-                echo"<br />"; 
-                echo $max; 
-                echo "<br />"; 
+                // echo $rt[1]; 
+                // echo"<br />"; 
+                // echo $max; 
+                // echo "<br />"; 
                 $normal = $rt[1]/$max; 
-                echo $normal;
+                // echo $normal;
                 $rsf=mysqli_query(Datab(),"update altnormal set c$tar[0]=$normal where ida='$rt[ida]'"); 
-                    echo "<hr />"; 
+                    // echo "<hr />"; 
             } 
-            echo "bangsat"; 
-            echo "<br />"; 
+            // echo "bangsat"; 
+            // echo "<br />"; 
         }else {
             $go1=mysqli_query(Datab(),"select ida,c$tar[0] from altnilai order by ida asc"); 
             $lai1 = mysqli_query(Datab(), "SELECT min(c$tar[0]) AS min FROM altnilai"); 
@@ -38,21 +38,21 @@ $kriteria=mysqli_query(Datab(),"select * from kriteria order by idk asc");
                 $min=$rg1["0"]; 
             } 
             while($rt1=mysqli_fetch_array($go1)) { 
-                echo $rt1[1]; 
-                echo "<br />"; 
-                echo $min; 
-                echo "<br />"; 
+                // echo $rt1[1]; 
+                // echo "<br />"; 
+                // echo $min; 
+                // echo "<br />"; 
                 $normal1 = $min/$rt1[1]; 
-                echo $normal1;
+                // echo $normal1;
                 $rsfa=mysqli_query(Datab(),"update altnormal set c$tar[0]=$normal1 where ida='$rt1[ida]'"); 
-                echo " <hr />"; 
+                // echo " <hr />"; 
             } 
-            echo "<br />"; 
-            echo "con"; 
-            echo "<br />"; 
+            // echo "<br />"; 
+            // echo "con"; 
+            // echo "<br />"; 
         } 
-            echo"=====================================================================================================>";
-            echo "<br />"; 
+            // echo"=====================================================================================================>";
+            // echo "<br />"; 
     } 
     //  while ($yu=mysqli_fetch_array($go)) { 
         //$lai = mysqli_query(Datab(), "SELECT max($yu[1]) AS max FROM altnilai"); 
@@ -67,23 +67,24 @@ $kriteria=mysqli_query(Datab(),"select * from kriteria order by idk asc");
                     $nnya=$gh[0]; 
                 } 
                 $v += $nnya*$sa["bobotk"]; 
-                    echo $nnya; echo "<br />"; 
-                    echo $sa["bobotk"];
-                    echo "<br />"; 
-                    echo "----->",$v; 
-                    echo "<br />"; 
+                    // echo $nnya; echo "<br />"; 
+                    // echo $sa["bobotk"];
+                    // echo "<br />"; 
+                    // echo "----->",$v; 
+                    // echo "<br />"; 
             } 
-            echo $v; 
-            echo "<br />"; 
-            echo"-------------------------------------------------------------------"; 
-            echo "<br />"; 
+            // echo $v; 
+            // echo "<br />"; 
+            // echo"-------------------------------------------------------------------"; 
+            // echo "<br />"; 
             mysqli_query(Datab(),"update ranknya set nilai=$v where ida='$an[ida]'");             
         } 
-            echo "hasil"; 
+            echo "<br>";
+            echo "<h3>Hasil Perengkingan</h3>"; 
             echo "<div class='table-responsive'>";
-            echo "<table class='table table-borderless table-dark'>
+            echo "<table class='table table-borderless'>
                                  <thead>
-                                    <tr>
+                                    <tr class='table-primary'>
                                         <th scope='col'>RANK</th>
                                         <th scope='col'>ID</th>
                                         <th scope='col'>Nama</th>
