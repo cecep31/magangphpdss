@@ -36,7 +36,7 @@ include 'config/app.php'
             <a class="nav-link" href="?p=kriteria">Kriteria</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link <?php if ($_GET["p"] == "alternatif") {echo 'active';} ?>" href="?p=alternatif">Alternatif</a>
+            <a class="nav-link <?php if ($_GET["p"] == "alternatif") {echo 'active';} cekkri();?>" href="?p=alternatif">Alternatif</a>
           </li>
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -44,12 +44,12 @@ include 'config/app.php'
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" href="?p=ranking">Ranking</a>
-              <a class="dropdown-item" href="#">Get Data</a>
+              <a class="dropdown-item" href="api/rank.php">Get Data</a>
             </div>
           </li>
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li>
+          </li> -->
         </ul>
         <form action="" method="POST" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
@@ -82,7 +82,9 @@ $c8 = $obj->getdata()[7];
 
   Datab();
   if (isset($_POST["cari"])) {
-    tampilcari($_POST["keyword"]);
+    echo "<div class='container'>";
+    tampilalternatif($_POST["keyword"]);
+    echo "</div>";
   }
   elseif (isset($_GET['p'])) {
     $page = $_GET['p'];

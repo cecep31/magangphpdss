@@ -309,29 +309,38 @@ function tampilkriteria(){
     ";
 }
 
-function tampilalternatif(){
-    $sqlku = "SELECT * FROM alternatif";
+function tampilalternatif($keyword=1){
+    if ($keyword==1) {
+        
+        $sqlku = "SELECT * FROM alternatif";
+    }else {
+        $sqlku = "SELECT * FROM alternatif where namaa like '%$keyword%' or ida like '%$keyword%'";
+    }
     $quer = mysqli_query(Datab(),$sqlku);
-    echo "
+    if ($keyword==1) {
+        
+        echo "
+            <br>
+            <div class='col-6'>
+                <h2>Alternatif</h2>
+            </div>
+            <div class='col-6'>
+                <form action='' method='post'>
+    
+                    <button type='submit' name='tambaha' class='btn btn-primary float-right btn-sm' data-toggle='modal'>
+                        Tambah Alternatif
+                    </button>
+                </form>
+                
+                
+            </div>
+    
+            <hr>           
+            ";
+    }
+        echo "
         <br>
-        <div class='col-6'>
-            <h2>Alternatif</h2>
-        </div>
-        <div class='col-6'>
-            <form action='' method='post'>
-
-                <button type='submit' name='tambaha' class='btn btn-primary float-right btn-sm' data-toggle='modal'>
-                    Tambah Alternatif
-                </button>
-            </form>
-            
-            
-        </div>
-
-        <hr>           
         <table class='table'>
-    ";
-    echo "
                 <thead class='thead-light'>
                      <tr>
                         <th scope='col'>No</th>
@@ -491,7 +500,17 @@ function formtambahnilai(){
     ";
 }
 
-function tampilcari($key=null){
-    
+// function tampilcari($key=null){
+//     echo $key;
+// }
+function cekkri(){
+    $sql = mysqli_query(Datab(), "select * from kriteria");
+    $cek = mysqli_num_rows($sql);
+    if($cek==0){
+        echo "disabled";
+    }else{
+        echo "";
+    }
 }
+
 ?>
