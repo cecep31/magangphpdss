@@ -51,9 +51,9 @@ include 'config/app.php'
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn my-2 my-sm-0" type="submit"><img src="img/se.png" width="20" alt=""></button>
+        <form action="" method="POST" class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
+          <button class="btn my-2 my-sm-0" name="cari" type="submit"><img src="img/se.png" width="20" alt=""></button>
         </form>
       </div>
     </div>
@@ -81,8 +81,10 @@ $c8 = $obj->getdata()[7];
 
 
   Datab();
-
-  if (isset($_GET['p'])) {
+  if (isset($_POST["cari"])) {
+    tampilcari($_POST["keyword"]);
+  }
+  elseif (isset($_GET['p'])) {
     $page = $_GET['p'];
 
     switch ($page) {
