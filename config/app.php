@@ -347,8 +347,18 @@ function tampilalternatif($keyword=1){
                         <th scope='col'>Id</th>
                         <th scope='col'>Nama</th>
                         <th scope='col'>E-mail</th>
-                        <th scope='col'>Tgl lahir</th>
-                        <th scope='col'>Alamat</th>
+        ";
+
+        $sqs = mysqli_query(Datab(),"select * from kriteria");
+        $gu=1;
+        while ($ty=mysqli_fetch_array($sqs)) {
+            echo "<th scope='col'>c$gu</th>";
+            $gu += 1;
+        }
+
+        echo "
+                        
+                        
                         <th scope='col'>Action</th>
                     </tr>
                 </thead>
@@ -363,8 +373,20 @@ function tampilalternatif($keyword=1){
             <td>$row[0]</td>
             <td>$row[1]</td>
             <td>$row[2]</td>
-            <td>$row[3]</td>
-            <td>$row[4]</td>
+            ";
+            $ghu=mysqli_query(Datab(),"SELECT * from altnilai where ida='$row[0]'");
+            while ($fgy=mysqli_fetch_array($ghu)) {
+                $fgs=1;
+                $rsff=mysqli_query(Datab(), "SELECT * FROM kriteria order by idk asc");
+                while ($rgb = mysqli_fetch_array($rsff)) {
+                    
+                    echo "<td>$fgy[$fgs]</td>";
+                    $fgs += 1;
+                }
+                
+            }
+            echo"
+            
           
             <td>
             <a href='?p=alternatifedit&key=$row[0]'><img src='img/053-edit.png' width='20' alt=''></a>&nbsp;|

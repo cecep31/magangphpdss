@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.2
+-- version 4.9.5deb2
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Oct 16, 2020 at 10:14 AM
--- Server version: 10.4.14-MariaDB
--- PHP Version: 7.4.9
+-- Host: localhost:3306
+-- Generation Time: Oct 20, 2020 at 10:27 AM
+-- Server version: 10.3.22-MariaDB-1ubuntu1
+-- PHP Version: 7.4.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -76,9 +77,9 @@ INSERT INTO `altnilai` (`ida`, `c14`, `c15`, `c16`) VALUES
 
 CREATE TABLE `altnormal` (
   `ida` varchar(15) NOT NULL,
-  `c14` tinyint(1) NOT NULL,
-  `c15` tinyint(1) NOT NULL,
-  `c16` tinyint(1) NOT NULL
+  `c14` float NOT NULL,
+  `c15` float NOT NULL,
+  `c16` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -86,10 +87,10 @@ CREATE TABLE `altnormal` (
 --
 
 INSERT INTO `altnormal` (`ida`, `c14`, `c15`, `c16`) VALUES
-('add', 1, 1, 1),
+('add', 1, 0.853933, 0.692308),
 ('hf', 1, 1, 1),
-('hsdu', 0, 1, 1),
-('jahs', 1, 0, 1);
+('hsdu', 0.133333, 0.752809, 0.576923),
+('jahs', 0.744444, 0.11236, 0.576923);
 
 -- --------------------------------------------------------
 
@@ -131,10 +132,10 @@ CREATE TABLE `ranknya` (
 --
 
 INSERT INTO `ranknya` (`ida`, `nilai`, `tgl`) VALUES
-('add', 1.9, '2020-10-15 06:51:55'),
+('add', 1.6600696, '2020-10-16 15:35:20'),
 ('hf', 1.9, '2020-10-15 06:51:55'),
-('hsdu', 1.2, '2020-10-15 06:51:55'),
-('jahs', 1.1, '2020-10-15 06:51:55');
+('hsdu', 0.9263495, '2020-10-16 15:35:20'),
+('jahs', 0.841768, '2020-10-16 15:35:20');
 
 --
 -- Indexes for dumped tables
