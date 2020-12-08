@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.9.5deb2
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Generation Time: Oct 20, 2020 at 10:27 AM
--- Server version: 10.3.22-MariaDB-1ubuntu1
--- PHP Version: 7.4.3
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 08 Des 2020 pada 13.36
+-- Versi server: 10.4.14-MariaDB
+-- Versi PHP: 7.4.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -25,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `alternatif`
+-- Struktur dari tabel `alternatif`
 --
 
 CREATE TABLE `alternatif` (
@@ -37,65 +36,69 @@ CREATE TABLE `alternatif` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `alternatif`
+-- Dumping data untuk tabel `alternatif`
 --
 
 INSERT INTO `alternatif` (`ida`, `namaa`, `emaila`, `tgl_lahira`, `alamata`) VALUES
-('add', 'bagas', 'bags2df', '2020-10-30', 'asdagd'),
 ('hf', 'udinidin', 'udin aja', '2020-10-31', 'ad'),
 ('hsdu', 'asep', 'asepaja', '2020-10-13', 'affa'),
-('jahs', 'cecep', 'sadvhad', '2020-11-07', 'hg');
+('jahs', 'cecep', 'sadvhad', '2020-11-07', 'hg'),
+('kf001', 'Agus Pratama', 'agusng@da.com', '2020-12-24', 'karawang');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `altnilai`
+-- Struktur dari tabel `altnilai`
 --
 
 CREATE TABLE `altnilai` (
   `ida` varchar(15) NOT NULL,
   `c14` int(11) NOT NULL,
   `c15` int(11) NOT NULL,
-  `c16` int(11) NOT NULL
+  `c16` int(11) NOT NULL,
+  `c17` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `altnilai`
+-- Dumping data untuk tabel `altnilai`
 --
 
-INSERT INTO `altnilai` (`ida`, `c14`, `c15`, `c16`) VALUES
-('add', 90, 76, 65),
-('hf', 90, 89, 45),
-('hsdu', 12, 67, 78),
-('jahs', 67, 10, 78);
+INSERT INTO `altnilai` (`ida`, `c14`, `c15`, `c16`, `c17`) VALUES
+('add', 90, 89, 65, 0),
+('hf', 90, 89, 45, 67),
+('hsdu', 12, 67, 78, 10),
+('jahs', 67, 10, 78, 78),
+('kf001', 90, 89, 67, 67);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `altnormal`
+-- Struktur dari tabel `altnormal`
 --
 
 CREATE TABLE `altnormal` (
   `ida` varchar(15) NOT NULL,
-  `c14` float NOT NULL,
-  `c15` float NOT NULL,
-  `c16` float NOT NULL
+  `c14` tinyint(1) NOT NULL,
+  `c15` tinyint(1) NOT NULL,
+  `c16` tinyint(1) NOT NULL,
+  `c17` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `altnormal`
+-- Dumping data untuk tabel `altnormal`
 --
 
-INSERT INTO `altnormal` (`ida`, `c14`, `c15`, `c16`) VALUES
-('add', 1, 0.853933, 0.692308),
-('hf', 1, 1, 1),
-('hsdu', 0.133333, 0.752809, 0.576923),
-('jahs', 0.744444, 0.11236, 0.576923);
+INSERT INTO `altnormal` (`ida`, `c14`, `c15`, `c16`, `c17`) VALUES
+('add', 1, 1, 1, 0),
+('hf', 1, 1, 1, 0.858974),
+('hsdu', 0, 1, 1, 0.128205),
+('jahs', 1, 0, 1, 1),
+('kf001', 1, 1, 1, 0.858974);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kriteria`
+-- Struktur dari tabel `kriteria`
 --
 
 CREATE TABLE `kriteria` (
@@ -107,18 +110,19 @@ CREATE TABLE `kriteria` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kriteria`
+-- Dumping data untuk tabel `kriteria`
 --
 
 INSERT INTO `kriteria` (`idk`, `namak`, `bobotk`, `borc`, `tgl_update`) VALUES
-(14, 'nasib', 0.7, 'b', '2020-10-15 04:27:50'),
-(15, 'nilai', 0.8, 'b', '2020-10-15 04:28:11'),
-(16, 'kasus', 0.4, 'c', '2020-10-15 04:28:29');
+(14, 'nasib', 0.1, 'b', '2020-12-08 08:03:39'),
+(15, 'nilai', 0.2, 'b', '2020-12-08 08:08:49'),
+(16, 'kasus', 0.4, 'c', '2020-10-15 04:28:29'),
+(17, 'sertifikat', 0.3, 'b', '2020-12-08 12:10:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `ranknya`
+-- Struktur dari tabel `ranknya`
 --
 
 CREATE TABLE `ranknya` (
@@ -128,58 +132,59 @@ CREATE TABLE `ranknya` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `ranknya`
+-- Dumping data untuk tabel `ranknya`
 --
 
 INSERT INTO `ranknya` (`ida`, `nilai`, `tgl`) VALUES
-('add', 1.6600696, '2020-10-16 15:35:20'),
-('hf', 1.9, '2020-10-15 06:51:55'),
-('hsdu', 0.9263495, '2020-10-16 15:35:20'),
-('jahs', 0.841768, '2020-10-16 15:35:20');
+('add', 0.7, '2020-12-08 08:19:40'),
+('hf', 0.9576922, '2020-12-08 12:31:26'),
+('hsdu', 0.6384615, '2020-12-08 12:31:26'),
+('jahs', 0.8, '2020-12-08 12:31:26'),
+('kf001', 0.9576922, '2020-12-08 12:31:26');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `alternatif`
+-- Indeks untuk tabel `alternatif`
 --
 ALTER TABLE `alternatif`
   ADD PRIMARY KEY (`ida`);
 
 --
--- Indexes for table `altnilai`
+-- Indeks untuk tabel `altnilai`
 --
 ALTER TABLE `altnilai`
   ADD PRIMARY KEY (`ida`);
 
 --
--- Indexes for table `altnormal`
+-- Indeks untuk tabel `altnormal`
 --
 ALTER TABLE `altnormal`
   ADD PRIMARY KEY (`ida`);
 
 --
--- Indexes for table `kriteria`
+-- Indeks untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
   ADD PRIMARY KEY (`idk`);
 
 --
--- Indexes for table `ranknya`
+-- Indeks untuk tabel `ranknya`
 --
 ALTER TABLE `ranknya`
   ADD PRIMARY KEY (`ida`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kriteria`
+-- AUTO_INCREMENT untuk tabel `kriteria`
 --
 ALTER TABLE `kriteria`
-  MODIFY `idk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `idk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
