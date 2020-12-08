@@ -244,6 +244,7 @@ function tampilkriteria(){
                 <tbody>
     ";
     $nom = 1;
+    $totb = 0;
     while ($row = mysqli_fetch_array($quer)) {
         echo "
         <tr>
@@ -257,14 +258,27 @@ function tampilkriteria(){
             </td>
         </tr>
         ";
+        $totb = $totb + $row[2];
         $nom+=1;
     }
     echo "
     </tbody>
     </table>
-                        
-                        
+    <div>
+        
+        total bobot: $totb
+    </div>
     ";
+    if ($totb != 1) {
+        echo "
+        <br>
+        <div class='alert alert-danger mx-auto' role='alert'>
+            Total dari bobot harus 1. !!
+        </div>
+                      
+    ";
+    }
+    
 }
 
 function tampilalternatif($keyword=1){

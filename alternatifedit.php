@@ -4,7 +4,7 @@
            
 <?php
 if (isset($_POST["addkan"])) {
-    $qq = mysqli_query(Datab(),"UPDATE alternatif set ida='$_POST[id]', namaa='$_POST[nama]',emaila='$_POST[email]', tgl_lahira='$_POST[tgl]', alamata='$_POST[alamat]' where ida='$_GET[key]'");
+    $qq = mysqli_query(Datab(),"UPDATE alternatif set namaa='$_POST[nama]',emaila='$_POST[email]', tgl_lahira='$_POST[tgl]', alamata='$_POST[alamat]' where ida='$_GET[key]'");
     // echo $_POST["id"];
     // echo $_POST["nama"];
     // echo $_POST["email"];
