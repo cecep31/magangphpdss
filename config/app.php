@@ -4,8 +4,8 @@ function Datab()
 {
     # code...
     $host = "localhost";
-    $user = "pilput";
-    $pass = "pilput31";
+    $user = "root";
+    $pass = "";
     $db = "magangdss";
 
         $conn = new mysqli($host,$user,$pass, $db);
@@ -279,7 +279,7 @@ function tampilkriteria(){
                         <th scope='col'>No</th>
                         <th scope='col'>Nama kriteria</th>
                         <th scope='col'>Bobot</th>
-                        <th scope='col'>Data date</th>
+                        <th scope='col'>keterangan benefit/cost</th>
                         <th scope='col'>Action</th>
                     </tr>
                 </thead>

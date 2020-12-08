@@ -3,8 +3,8 @@ function Datab()
 {
     # code...
     $host = "localhost";
-    $user = "pilput";
-    $pass = "pilput31";
+    $user = "root";
+    $pass = "";
     $db = "magangdss";
 
         $conn = new mysqli($host,$user,$pass, $db);
@@ -17,7 +17,7 @@ function Datab()
 }
 $no=1;
 $json=[];
-$sql = "SELECT ranknya.ida, alternatif.namaa, ranknya.nilai FROM ranknya,alternatif WHERE alternatif.ida = ranknya.ida ORDER BY nilai DESC";
+$sql = "SELECT ranknya.ida, alternatif.namaa, ranknya.nilai FROM ranknya,alternatif WHERE alternatif.ida = ranknya.ida ORDER BY nilai DESC limit 10";
 $gou=mysqli_query(Datab(),$sql); 
 while ($sd= mysqli_fetch_array($gou)) {
     $json[$no] = [

@@ -5,6 +5,7 @@
     } ?>">
        
     
+
     <?php
         if (isset($_POST["simp"])) {
             // $qualy1 = mysqli_query(Datab(), "selct * from altnilai");
