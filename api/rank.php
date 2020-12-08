@@ -11,7 +11,6 @@ function Datab()
         if ($conn->connect_error) {
             die("connection failed: ". $conn->connect_error);
         }
-        // else{echo 'berhasil connect';}
 
         return $conn;
 }

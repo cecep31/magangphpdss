@@ -200,48 +200,6 @@ function tampilformbobot(){
         $k8 = $_POST["c8"];
     }
  
-    // $objk = new Kriteria($_POST["c1"],$_POST["c2"],$_POST["c3"],$_POST["c4"],$k5,$k6,$k7,$k8);
-    // $tpdata = $objk->getdata;
-    // $x = 4;
-    // $ka1 = $objk->getdata()[0];
-    // $ka2 = $objk->getdata()[1];
-    // $ka3 = $objk->getdata()[2];
-    // $ka4 = $objk->getdata()[3];
-    // $ka5 = $objk->getdata()[4];
-    // $ka6 = $objk->getdata()[5];
-    // $ka7 = $objk->getdata()[6];
-    // $ka8 = $objk->getdata()[7];
-
-    // $arrs =array();
-    // for ($i=0; $i < $_POST["jml"]; $i++) { 
-    //     array_push($arrs,c)
-    //     $x = $x+1;
-    // }
-    // $query = "CREATE TABLE kriteria (
-    //     id INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    //     $k1 int NOT NULL,
-    //     $k2 int NOT NULL,
-    //     $k3 int NOT NULL,
-    //     $k4 int NOT NULL,
-    //     reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    //     )";
-    
-    // if (Datab()->query($query) === TRUE) {
-    //     echo "Table MyGuests created successfully";
-    //   } else {
-    //     echo "Error creating table: " . Datab()->error;
-    //   }
-    // $query = "CREATE TABLE MyGuests (
-    //             id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
-    //             nama VARCHAR(30) NOT NULL,
-
-    //             tgllahir VARCHAR(30) NOT NULL,
-    //             email VARCHAR(50),
-    //             reg_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
-    //     )";
-    // for ($i=0; $i < $_POST["jml"]; $i++) { 
-        
-    // }
     echo "
     <div class='col-4'>
         <h2>Config kriteria</h2> 
@@ -454,12 +412,12 @@ function tampiladdkriteria($nama="",$bobot="",$borc=""){
 
 
 function tampiltambahalteratif($id=null,$nama=null,$email=null,$tgl=null,$alamat=null){
-    if ($_GET["p"] == "alternatifedit") {$tombol="ubah";}else{$tombol="tambah";}
+    if ($_GET["p"] == "alternatifedit") {$tombol="ubah"; $disabel="disabled";}else{$tombol="tambah";$disabel="";}
     echo "
     <form action='' method='post'>
         <div class='form-group'>
             <label >ID</label>
-            <input type='text' value='$id' name='id' class='form-control' >
+            <input type='text' value='$id' name='id' class='form-control' $disabel>
             
         </div>
         <div class='form-group'>
@@ -522,9 +480,7 @@ function formtambahnilai(){
     ";
 }
 
-// function tampilcari($key=null){
-//     echo $key;
-// }
+
 function cekkri(){
     $sql = mysqli_query(Datab(), "select * from kriteria");
     $cek = mysqli_num_rows($sql);

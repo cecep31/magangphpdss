@@ -44,9 +44,7 @@ include 'config/app.php';
               <a class="dropdown-item" href="api/rank.php">Get Data</a>
             </div>
           </li>
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li> -->
+        
         </ul>
         <form action="" method="POST" class="form-inline my-2 my-lg-0">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" name="keyword" aria-label="Search">
@@ -67,13 +65,6 @@ $c5 = $obj->getdata()[4];
 $c6 = $obj->getdata()[5];
 $c7 = $obj->getdata()[6];
 $c8 = $obj->getdata()[7];
-
-
-// if (!empty($c3)) {
-//   echo $obj->getdata()[4];
-//   echo "<br>";
-// }
-
 
 
 
